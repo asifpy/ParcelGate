@@ -1,0 +1,180 @@
+- model: offer.offer
+  pk: 1
+  fields:
+    title: Offer 1
+    description: Offer description 1
+    broker: 1
+    parcels: [1]
+    price_per_meter: '1000.00'
+    creation_date: '2024-04-13T08:00:00Z'
+- model: offer.offer
+  pk: 2
+  fields:
+    title: Offer 2
+    description: Offer description 2
+    broker: 2
+    parcels: [2]
+    price_per_meter: '2000.00'
+    creation_date: '2024-04-13T08:00:00Z'
+- model: offer.offer
+  pk: 3
+  fields:
+    title: Offer 3
+    description: Offer description 3
+    broker: 1
+    parcels: [1]
+    price_per_meter: '1500.00'
+    creation_date: '2024-04-13T08:00:00Z'
+- model: offer.offer
+  pk: 4
+  fields:
+    title: Offer 4
+    description: Offer description 4
+    broker: 2
+    parcels: [2]
+    price_per_meter: '2000.00'
+    creation_date: '2024-04-13T08:00:00Z'
+- model: offer.offer
+  pk: 5
+  fields:
+    title: Offer 5
+    description: Offer description 5
+    broker: 3
+    parcels: [1]
+    price_per_meter: '2500.00'
+    creation_date: '2024-04-13T08:00:00Z'
+- model: offer.offer
+  pk: 6
+  fields:
+    title: Offer 6
+    description: Offer description 6
+    broker: 4
+    parcels: [2]
+    price_per_meter: '3000.00'
+    creation_date: '2024-04-13T08:00:00Z'
+- model: offer.offer
+  pk: 7
+  fields:
+    title: Offer 7
+    description: Offer description 7
+    broker: 5
+    parcels: [1]
+    price_per_meter: '3500.00'
+    creation_date: '2024-04-13T08:00:00Z'
+- model: offer.offer
+  pk: 8
+  fields:
+    title: Offer 8
+    description: Offer description 8
+    broker: 6
+    parcels: [2]
+    price_per_meter: '4000.00'
+    creation_date: '2024-04-13T08:00:00Z'
+- model: offer.offer
+  pk: 9
+  fields:
+    title: Offer 9
+    description: Offer description 9
+    broker: 7
+    parcels: [1]
+    price_per_meter: '4500.00'
+    creation_date: '2024-04-13T08:00:00Z'
+- model: offer.offer
+  pk: 10
+  fields:
+    title: Offer 10
+    description: Offer description 10
+    broker: 8
+    parcels: [2]
+    price_per_meter: '5000.00'
+    creation_date: '2024-04-13T08:00:00Z'
+- model: offer.offer
+  pk: 11
+  fields:
+    title: Offer 11
+    description: Offer description 11
+    broker: 9
+    parcels: [1]
+    price_per_meter: '5500.00'
+    creation_date: '2024-04-13T08:00:00Z'
+- model: offer.offer
+  pk: 12
+  fields:
+    title: Offer 12
+    description: Offer description 12
+    broker: 10
+    parcels: [2]
+    price_per_meter: '6000.00'
+    creation_date: '2024-04-13T08:00:00Z'
+- model: offer.offer
+  pk: 13
+  fields:
+    title: Offer 13
+    description: Offer description 13
+    broker: 1
+    parcels: [1]
+    price_per_meter: '6500.00'
+    creation_date: '2024-04-13T08:00:00Z'
+- model: offer.offer
+  pk: 14
+  fields:
+    title: Offer 14
+    description: Offer description 14
+    broker: 2
+    parcels: [2]
+    price_per_meter: '7000.00'
+    creation_date: '2024-04-13T08:00:00Z'
+- model: offer.offer
+  pk: 15
+  fields:
+    title: Offer 15
+    description: Offer description 15
+    broker: 3
+    parcels: [1]
+    price_per_meter: '7500.00'
+    creation_date: '2024-04-13T08:00:00Z'
+- model: offer.offer
+  pk: 16
+  fields:
+    title: Offer 16
+    description: Offer description 16
+    broker: 4
+    parcels: [2]
+    price_per_meter: '8000.00'
+    creation_date: '2024-04-13T08:00:00Z'
+- model: offer.offer
+  pk: 17
+  fields:
+    title: Offer 17
+    description: Offer description 17
+    broker: 5
+    parcels: [1]
+    price_per_meter: '8500.00'
+    creation_date: '2024-04-13T08:00:00Z'
+- model: offer.offer
+  pk: 18
+  fields:
+    title: Offer 18
+    description: Offer description 18
+    broker: 6
+    parcels: [2]
+    price_per_meter: '9000.00'
+    creation_date: '2024-04-13T08:00:00Z'
+- model: offer.offer
+  pk: 19
+  fields:
+    title: Offer 19
+    description: Offer description 19
+    broker: 7
+    parcels: [1]
+    price_per_meter: '9500.00'
+    creation_date: '2024-04-13T08:00:00Z'
+- model: offer.offer
+  pk: 20
+  fields:
+    title: Offer 20
+    description: Offer description 20
+    broker: 8
+    parcels: [2]
+    price_per_meter: '10000.00'
+    creation_date: '2024-04-13T08:00:00Z'

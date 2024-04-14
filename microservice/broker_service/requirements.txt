@@ -1,0 +1,14 @@
+Django==5.0.2
+psycopg2==2.9.9
+celery==5.3.6
+djangorestframework==3.15.1
+
+# dev
+Werkzeug==3.0.1
+ipython==8.21.0
+flake8==7.0.0
+black==24.1.1
+
+# prod
+uvicorn==0.27.0.post1
+gunicorn==21.2.0

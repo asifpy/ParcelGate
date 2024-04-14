@@ -1,0 +1,102 @@
+- model: broker.broker
+  pk: 1
+  fields:
+    name: Broker 1
+    type: Individual
+    phone_number: '111-111-1111'
+    email: broker1@example.com
+    bio: Experienced real estate broker
+    creation_date: '2024-04-13T08:00:00Z'
+- model: broker.broker
+  pk: 2
+  fields:
+    name: Broker 2
+    type: Individual
+    phone_number: '222-222-2222'
+    email: broker2@example.com
+    bio: Specializes in commercial real estate
+    creation_date: '2024-04-13T08:00:00Z'
+- model: broker.broker
+  pk: 3
+  fields:
+    name: Broker 3
+    type: Individual
+    phone_number: '333-333-3333'
+    email: broker3@example.com
+    bio: Experienced real estate broker
+    creation_date: '2024-04-13T08:00:00Z'
+- model: broker.broker
+  pk: 4
+  fields:
+    name: Broker 4
+    type: Individual
+    phone_number: '444-444-4444'
+    email: broker4@example.com
+    bio: Specializes in commercial real estate
+    creation_date: '2024-04-13T08:00:00Z'
+# Add more Broker records as needed
+
+- model: broker.broker
+  pk: 5
+  fields:
+    name: Broker 5
+    type: Individual
+    phone_number: '555-555-5555'
+    email: broker5@example.com
+    bio: Experienced real estate broker
+    creation_date: '2024-04-13T08:00:00Z'
+- model: broker.broker
+  pk: 6
+  fields:
+    name: Broker 6
+    type: Individual
+    phone_number: '666-666-6666'
+    email: broker6@example.com
+    bio: Specializes in commercial real estate
+    creation_date: '2024-04-13T08:00:00Z'
+    last_update_date: '2024-04-13T08:00:00Z'
+  
+- model: broker.broker
+  pk: 7
+  fields:
+    name: Broker 7
+    type: Individual
+    phone_number: '777-777-7777'
+    email: broker7@example.com
+    bio: Experienced real estate broker
+    creation_date: '2024-04-13T08:00:00Z'
+    last_update_date: '2024-04-13T08:00:00Z'
+- model: broker.broker
+  pk: 8
+  fields:
+    name: Broker 8
+    type: Individual
+    phone_number: '888-888-8888'
+    email: broker8@example.com
+    bio: Specializes in commercial real estate
+    creation_date: '2024-04-13T08:00:00Z'
+    last_update_date: '2024-04-13T08:00:00Z'
+# Add more Broker records as needed
+
+- model: broker.broker
+  pk: 9
+  fields:
+    name: Broker 9
+    type: Individual
+    phone_number: '999-999-9999'
+    email: broker9@example.com
+    bio: Experienced real estate broker
+    creation_date: '2024-04-13T08:00:00Z'
+    last_update_date: '2024-04-13T08:00:00Z'
+
+- model: broker.broker
+  pk: 10
+  fields:
+    name: Broker 10
+    type: Individual
+    phone_number: '101-101-1010'
+    email: broker10@example.com
+    bio: Specializes in commercial real estate
+    creation_date: '2024-04-13T08:00:00Z'
+    last_update_date: '2024-04-13T08:00:00Z'
+

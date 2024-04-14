@@ -1,0 +1,19 @@
+Django==5.0.2
+psycopg2==2.9.9
+celery==5.3.6
+djangorestframework==3.15.1
+django-filter==24.2
+django-extensions==3.2.3
+PyYAML==6.0.1
+drf-flex-fields==1.0.2
+djangorestframework-simplejwt==5.3.1
+
+# dev
+Werkzeug==3.0.1
+ipython==8.21.0
+flake8==7.0.0
+black==24.1.1
+
+# prod
+uvicorn==0.27.0.post1
+gunicorn==21.2.0

@@ -1,0 +1,81 @@
+version: '3.8'
+
+services:
+  kong:
+    image: kong:latest
+    ports:
+      - "8000:8000"  # Kong Admin API
+      - "8001:8001"  # Kong Proxy
+    environment:
+      KONG_DATABASE: "postgres"
+      KONG_PG_HOST: "postgres_kong"
+      KONG_PG_USER: "kong"
+      KONG_PG_PASSWORD: "kong"
+      KONG_PG_DATABASE: "kong"
+    depends_on:
+      - postgres_kong
+
+  postgres_kong:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: kong
+      POSTGRES_USER: kong
+      POSTGRES_PASSWORD: kong
+    volumes:
+      - kong_data:/var/lib/postgresql/data
+
+  postgres_broker:
+    image: postgres:latest
+    env_file: ./broker_service/.env
+    volumes:
+      - postgres_broker_data:/var/lib/postgresql/data
+
+  # postgres_offer:
+  #   image: postgres:latest
+  #   environment:
+  #     POSTGRES_DB: offer_db
+  #     POSTGRES_USER: offer_user
+  #     POSTGRES_PASSWORD: offer_password
+  #   volumes:
+  #     - postgres_offer_data:/var/lib/postgresql/data
+
+  # postgres_parcel:
+  #   image: postgres:latest
+  #   environment:
+  #     POSTGRES_DB: parcel_db
+  #     POSTGRES_USER: parcel_user
+  #     POSTGRES_PASSWORD: parcel_password
+  #   volumes:
+  #     - postgres_parcel_data:/var/lib/postgresql/data
+
+  # postgres_notification:
+  #   image: postgres:latest
+  #   environment:
+  #     POSTGRES_DB: notification_db
+  #     POSTGRES_USER: notification_user
+  #     POSTGRES_PASSWORD: notification_password
+  #   volumes:
+  #     - postgres_notification_data:/var/lib/postgresql/data
+
+  broker_service:
+    build: ./broker_service/
+    image: ${PROJECT}/broker_service:${TAG}
+    env_file: ./broker_service/.env
+    volumes:
+      - broker_static:/app/static
+      - broker_media:/app/media
+      - ./broker_service:/app
+    depends_on:
+        - postgres_broker
+    ports:
+        - "8002:8000"
+    command: python manage.py runserver 0.0.0.0:8000
+
+volumes:
+  kong_data:
+  postgres_broker_data:
+  postgres_offer_data:
+  postgres_parcel_data:
+  postgres_notification_data:
+  broker_static:
+  broker_media:

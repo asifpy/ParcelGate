@@ -1,0 +1,18 @@
+- model: parcel.parcel
+  pk: 1
+  fields:
+    block_number: A1
+    neighbourhood: Example Neighbourhood
+    subdivision_number: S1
+    land_use_group: Residential
+    description: A beautiful residential plot
+    creation_date: '2024-04-13T08:00:00Z'
+- model: parcel.parcel
+  pk: 2
+  fields:
+    block_number: B2
+    neighbourhood: Another Neighbourhood
+    subdivision_number: S2
+    land_use_group: Commercial
+    description: A commercial property with great potential
+    creation_date: '2024-04-13T08:00:00Z'
