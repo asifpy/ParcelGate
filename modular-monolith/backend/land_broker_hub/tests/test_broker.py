@@ -1,24 +1,14 @@
-import uuid
 from django.urls import reverse
-from django.contrib.auth.models import User
 
 from rest_framework import status
-from rest_framework.test import APITestCase
-from rest_framework_simplejwt.tokens import RefreshToken
 
+from .base import TestBaseAPIView
 from ..broker.models import Broker
+from ..broker.serializers import BrokerSerializer
 
-class TestBrokerAPIView(APITestCase):
+class TestBrokerAPIView(TestBaseAPIView):
 
     def setUp(self):
-        # handle auth
-        fake_email = f"{str(uuid.uuid4())}@email.com"
-        self.user = User.objects.create(
-            email=str(uuid.uuid4()),
-        )
-        refresh = RefreshToken.for_user(self.user)
-        self.client.credentials(HTTP_AUTHORIZATION=f'Bearer {str(refresh.access_token)}')
-
         self.data = {
             "name": "Broker 8",
             "type": "Individual",
@@ -45,10 +35,20 @@ class TestBrokerAPIView(APITestCase):
         url = reverse('broker:broker-list')
         Broker.objects.create(**self.data)
         response = self.client.get(url,format='json')
-        self.assertEqual(response.status_code,status.HTTP_200_OK)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data['count'], 1)
         self.assertEqual(response.data['results'][0]['name'], "Broker 8")
+        self.assertEqual(
+            response.data['results'],
+            BrokerSerializer(Broker.objects.all(), many=True).data
+        )
     
     def test_details_broker(self):
         """Test broker details endpoint"""
-        
+        broker = Broker.objects.create(**self.data)
+        url = reverse('broker:broker-detail', args=[broker.id])
+        response = self.client.get(url,format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data, BrokerSerializer(broker).data)
+
+

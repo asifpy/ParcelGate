@@ -4,9 +4,9 @@ class Parcel(models.Model):
     """Model to capture Parcel related fields"""
 
     LAND_USE_CHOICES = [
-        ('Agricultural', 'Agricultural'),
-        ('Residential', 'Residential'),
-        ('Commercial', 'Commercial'),
+        ('agricultural', 'Agricultural'),
+        ('residential', 'Residential'),
+        ('commercial', 'Commercial'),
     ]
 
     block_number = models.CharField(max_length=50)
