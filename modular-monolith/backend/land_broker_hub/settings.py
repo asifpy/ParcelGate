@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_filters',
     'django_extensions',
+    'drf_spectacular',
 
     # project specific packages
     f'{PROJECT}.broker',
@@ -87,6 +88,9 @@ DATABASES = {
         "HOST": env("POSTGRES_HOST"),
         "PORT": "",
     },
+    'test': {
+        'NAME': f"test_{env('POSTGRES_DB')}",
+    }
 }
 
 
@@ -114,6 +118,8 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
+
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
 

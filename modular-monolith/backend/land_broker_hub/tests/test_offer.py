@@ -50,6 +50,7 @@ class TestOfferAPIView(TestBaseAPIView):
 
     def test_create_offer_failed(self):
         """Test create endpoint handles bad request"""
+
         self.offer_data.pop("broker")
         self.offer_data.pop("parcels")
         url = reverse('offer:offer-list')
@@ -81,11 +82,13 @@ class TestOfferAPIView(TestBaseAPIView):
     
     def test_update_offer(self):
         """Test update offer endpoint"""
+
         offer = self.create_offer
         # update the offer fields
         self.offer_data['title'] = "Updated title"
         self.offer_data['broker'] = self.broker.id
         self.offer_data['parcels'] = [self.parcel.id]
+
         url = reverse('offer:offer-detail', args=[offer.id])
         response = self.client.put(url, self.offer_data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
