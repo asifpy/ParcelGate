@@ -1,5 +1,6 @@
 import requests
 from celery import shared_task
+from django.http import JsonResponse
 
 from .models import Parcel
 
