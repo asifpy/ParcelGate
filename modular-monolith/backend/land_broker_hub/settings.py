@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django_filters',
     'django_extensions',
     'drf_spectacular',
+    'django_celery_results',
 
     # project specific packages
     f'{PROJECT}.broker',
@@ -101,9 +102,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'static'
-STATICFILES_DIRS = [
-    BASE_DIR / PROJECT / 'static'
-]
+# STATICFILES_DIRS = [
+#     BASE_DIR / PROJECT / 'static'
+# ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
@@ -121,6 +122,12 @@ REST_FRAMEWORK = {
 
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
+
+# Celery
+QUEUE_HOST = env("QUEUE_HOST")
+BROKER_URL = f"amqp://guest@{QUEUE_HOST}//"
+CELERY_BROKER_URL = f"amqp://guest@{QUEUE_HOST}//"
+CELERY_RESULT_BACKEND = "django-db"
 
 
 # Enable this to see queries in the console real quick
