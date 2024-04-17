@@ -11,9 +11,9 @@ This API project manages offers & brokers on a list of parcels (Parcel of Land).
 - RabbitMQ
 - Docker
 
-# Modular Architecture
+# Modular Monolith Architecture
 
-The application follows a modular architecture, allowing for better organization and scalability of code. Each component of the application, such as models, views, serializers, and tasks, is organized into separate modules or packages, promoting code reusability and maintainability.
+The application is built using a modular monolith architecture approach. While it is a monolithic application, it is structured in a modular way, allowing for better organization and separation of concerns within the codebase. Each module encapsulates related functionality, promoting code reusability and maintainability while still benefiting from the simplicity of a monolithic deployment.
 
 # Dockerized Flavor
 
