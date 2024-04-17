@@ -1,0 +1,739 @@
+openapi: 3.0.3
+info:
+  title: ''
+  version: 0.0.0
+paths:
+  /brokers/:
+    get:
+      operationId: brokers_list
+      description: |-
+        Factory Broker viewset for list and create endpoints.
+        Configured filters are for `type` and `name` fields.
+        Enabled pagination to return 10 objects per page
+      parameters:
+      - in: query
+        name: name
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - in: query
+        name: type
+        schema:
+          type: string
+      tags:
+      - brokers
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedBrokerList'
+          description: ''
+    post:
+      operationId: brokers_create
+      description: |-
+        Factory Broker viewset for list and create endpoints.
+        Configured filters are for `type` and `name` fields.
+        Enabled pagination to return 10 objects per page
+      tags:
+      - brokers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Broker'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Broker'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Broker'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Broker'
+          description: ''
+  /brokers/{id}/:
+    get:
+      operationId: brokers_retrieve
+      description: Endpoint to return broker details for the given PK
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - brokers
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+  /offers/:
+    get:
+      operationId: offers_list
+      parameters:
+      - in: query
+        name: broker__name
+        schema:
+          type: string
+      - in: query
+        name: broker__type
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - offers
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedOfferList'
+          description: ''
+    post:
+      operationId: offers_create
+      tags:
+      - offers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Offer'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Offer'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Offer'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Offer'
+          description: ''
+  /offers/{id}/:
+    get:
+      operationId: offers_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - offers
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Offer'
+          description: ''
+    put:
+      operationId: offers_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - offers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Offer'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Offer'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Offer'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Offer'
+          description: ''
+    patch:
+      operationId: offers_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - offers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedOffer'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedOffer'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedOffer'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Offer'
+          description: ''
+    delete:
+      operationId: offers_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - offers
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /parcels/:
+    get:
+      operationId: parcels_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - parcels
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedParcelList'
+          description: ''
+    post:
+      operationId: parcels_create
+      tags:
+      - parcels
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Parcel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Parcel'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Parcel'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Parcel'
+          description: ''
+  /parcels/{id}/:
+    get:
+      operationId: parcels_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - parcels
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Parcel'
+          description: ''
+    put:
+      operationId: parcels_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - parcels
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Parcel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Parcel'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Parcel'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Parcel'
+          description: ''
+    patch:
+      operationId: parcels_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - parcels
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedParcel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedParcel'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedParcel'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Parcel'
+          description: ''
+    delete:
+      operationId: parcels_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - parcels
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /token/:
+    post:
+      operationId: token_create
+      description: |-
+        Takes a set of user credentials and returns an access and refresh JSON web
+        token pair to prove the authentication of those credentials.
+      tags:
+      - token
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenObtainPair'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TokenObtainPair'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TokenObtainPair'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenObtainPair'
+          description: ''
+  /token/refresh/:
+    post:
+      operationId: token_refresh_create
+      description: |-
+        Takes a refresh type JSON web token and returns an access type JSON web
+        token if the refresh token is valid.
+      tags:
+      - token
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenRefresh'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TokenRefresh'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TokenRefresh'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenRefresh'
+          description: ''
+components:
+  schemas:
+    Broker:
+      type: object
+      description: |-
+        A ModelSerializer that takes additional arguments for
+        "fields", "omit" and "expand" in order to
+        control which fields are displayed, and whether to replace simple
+        values with complex, nested serializations
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 100
+        type:
+          type: string
+          maxLength: 100
+        phone_number:
+          type: string
+          maxLength: 20
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        bio:
+          type: string
+        creation_date:
+          type: string
+          format: date-time
+          readOnly: true
+        last_update_date:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+      required:
+      - bio
+      - creation_date
+      - email
+      - id
+      - last_update_date
+      - name
+      - phone_number
+      - type
+    LandUseGroupEnum:
+      enum:
+      - agricultural
+      - residential
+      - commercial
+      type: string
+      description: |-
+        * `agricultural` - Agricultural
+        * `residential` - Residential
+        * `commercial` - Commercial
+    Offer:
+      type: object
+      description: |-
+        A ModelSerializer that takes additional arguments for
+        "fields", "omit" and "expand" in order to
+        control which fields are displayed, and whether to replace simple
+        values with complex, nested serializations
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        title:
+          type: string
+          maxLength: 100
+        description:
+          type: string
+        price_per_meter:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        is_active:
+          type: boolean
+        creation_date:
+          type: string
+          format: date-time
+          readOnly: true
+        last_updated_date:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        broker:
+          type: integer
+        parcels:
+          type: array
+          items:
+            type: integer
+      required:
+      - broker
+      - creation_date
+      - description
+      - id
+      - last_updated_date
+      - parcels
+      - price_per_meter
+      - title
+    PaginatedBrokerList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Broker'
+    PaginatedOfferList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Offer'
+    PaginatedParcelList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Parcel'
+    Parcel:
+      type: object
+      description: |-
+        A ModelSerializer that takes additional arguments for
+        "fields", "omit" and "expand" in order to
+        control which fields are displayed, and whether to replace simple
+        values with complex, nested serializations
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        block_number:
+          type: string
+          maxLength: 50
+        neighbourhood:
+          type: string
+          maxLength: 100
+        subdivision_number:
+          type: string
+          maxLength: 50
+        land_use_group:
+          $ref: '#/components/schemas/LandUseGroupEnum'
+        description:
+          type: string
+        creation_date:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - block_number
+      - creation_date
+      - description
+      - id
+      - land_use_group
+      - neighbourhood
+      - subdivision_number
+    PatchedOffer:
+      type: object
+      description: |-
+        A ModelSerializer that takes additional arguments for
+        "fields", "omit" and "expand" in order to
+        control which fields are displayed, and whether to replace simple
+        values with complex, nested serializations
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        title:
+          type: string
+          maxLength: 100
+        description:
+          type: string
+        price_per_meter:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        is_active:
+          type: boolean
+        creation_date:
+          type: string
+          format: date-time
+          readOnly: true
+        last_updated_date:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        broker:
+          type: integer
+        parcels:
+          type: array
+          items:
+            type: integer
+    PatchedParcel:
+      type: object
+      description: |-
+        A ModelSerializer that takes additional arguments for
+        "fields", "omit" and "expand" in order to
+        control which fields are displayed, and whether to replace simple
+        values with complex, nested serializations
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        block_number:
+          type: string
+          maxLength: 50
+        neighbourhood:
+          type: string
+          maxLength: 100
+        subdivision_number:
+          type: string
+          maxLength: 50
+        land_use_group:
+          $ref: '#/components/schemas/LandUseGroupEnum'
+        description:
+          type: string
+        creation_date:
+          type: string
+          format: date-time
+          readOnly: true
+    TokenObtainPair:
+      type: object
+      properties:
+        username:
+          type: string
+          writeOnly: true
+        password:
+          type: string
+          writeOnly: true
+        access:
+          type: string
+          readOnly: true
+        refresh:
+          type: string
+          readOnly: true
+      required:
+      - access
+      - password
+      - refresh
+      - username
+    TokenRefresh:
+      type: object
+      properties:
+        access:
+          type: string
+          readOnly: true
+        refresh:
+          type: string
+          writeOnly: true
+      required:
+      - access
+      - refresh
+  securitySchemes:
+    jwtAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

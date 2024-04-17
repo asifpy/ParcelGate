@@ -9,10 +9,6 @@ PROJECT = env('PROJECT', 'project')
 PROJECT_VERBOSE = env('PROJECT_VERBOSE', 'Project')
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-k9gt04n@$+w!k7_=%%q51-9jswas&y=pvv^)&)8!7xg7-#06q9'
-DEBUG = True
-ALLOWED_HOSTS = ["localhost", "webserver"]
-CSRF_TRUSTED_ORIGINS = ["http://localhost:8060"]
-
 
 INSTALLED_APPS = [
     'django.contrib.admin',
