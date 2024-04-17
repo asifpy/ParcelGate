@@ -59,6 +59,12 @@ API Target: `http://localhost:8060/offers/?expand=broker,parcels`
 
 ![image](https://github.com/asifpy/ParcelGate/assets/6741984/d384edeb-d5b2-428e-9f4d-74dd8a51e4b9)
 
+# High-Level Architecture
+
+![image](https://github.com/asifpy/ParcelGate/assets/6741984/e2963d14-2f32-4f60-b7db-8803c7e765ee)
+
+
+
 
 
 
