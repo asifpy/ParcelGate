@@ -15,6 +15,22 @@ This API project manages offers & brokers on a list of parcels (Parcel of Land).
 
 The application is built using a modular monolith architecture approach. While it is a monolithic application, it is structured in a modular way, allowing for better organization and separation of concerns within the codebase. Each module encapsulates related functionality, promoting code reusability and maintainability while still benefiting from the simplicity of a monolithic deployment.
 
+# Application Directory Hierarchy
+
+```
+modular-monolith
+    ├── backend                      # primary backend service
+    │   ├── land_broker_hub          # land_broker_hub root namespace
+    │   │   ├── broker               # broker application/module 
+    │   │   ├── data                 # fixtures container
+    │   │   ├── offer                # offer application/module 
+    │   │   ├── parcel               # parcel application/module 
+    │   │   ├── settings             # application settings
+    │   │   └── tests                # application tests
+    │   ├── scripts                  # application scripts
+    └── webserver                    # application webserver
+```
+
 # Dockerized Flavor
 
 The application is available in a Dockerized flavor, allowing for easy deployment and management in containerized environments.
@@ -38,8 +54,14 @@ foo@bar:~$ docker compose up --build
 
 4. Application boostraping to setup the DB and load the initial fixtures
 ```console
-foo@bar:~$ docker-compose exec backend ./scripts/bootstrap.sh
+foo@bar:~$ docker compose exec backend ./scripts/bootstrap.sh
 ```
+5. You can also run the tests via:
+
+```console
+foo@bar:~$ docker compose exec backend python manage.py tests
+```
+   
 # JWT Authentication for API Security
 
 API resources are protected with JWT (JSON Web Token) authentication scheme, ensuring secure access to the endpoints.
