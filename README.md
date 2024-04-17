@@ -41,5 +41,14 @@ foo@bar:~$ docker compose up --build
 foo@bar:~$ docker-compose exec backend ./scripts/bootstrap.sh
 ```
 
+# Consume / Invoke API endpoints
+
+After setting up the application, you can access the all the endpoints using Swagger UI OR any API client. Below is the API response for the Offers endpoint which supports the filters and pagination options:
+
+API Target: `http://localhost:8060/offers/?expand=broker,parcels`
+![image](https://github.com/asifpy/ParcelGate/assets/6741984/d384edeb-d5b2-428e-9f4d-74dd8a51e4b9)
+
+
+
 
 
