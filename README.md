@@ -72,6 +72,7 @@ The application includes Swagger UI for API documentation, providing an interact
 
 -  You can access the Swagger UI by navigating to `http://localhost:8060/api/schema/swagger-ui/` for desired API documentation
 -  Use the interactive interface to explore and test the API endpoints
+-  Complete Open API specification is available at `modular-monolith/backend/api_spec.yaml`
 
 # Consume / Invoke API endpoints
 
