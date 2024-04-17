@@ -19,7 +19,7 @@ The application follows a modular architecture, allowing for better organization
 
 The application is available in a Dockerized flavor, allowing for easy deployment and management in containerized environments.
 
-# Infrastructre Setup & Installation
+# Infrastructure Setup & Installation
 
 1. Clone the repository:
 ```console
@@ -40,12 +40,23 @@ foo@bar:~$ docker compose up --build
 ```console
 foo@bar:~$ docker-compose exec backend ./scripts/bootstrap.sh
 ```
+# JWT Authentication for API Security
+
+API resources are protected with JWT (JSON Web Token) authentication scheme, ensuring secure access to the endpoints.
+
+# Swagger UI for API Documentation
+
+The application includes Swagger UI for API documentation, providing an interactive interface to explore and test the API endpoints.
+
+-  You can access the Swagger UI by navigating to `http://localhost:8060/api/schema/swagger-ui/` for desired API documentation
+-  Use the interactive interface to explore and test the API endpoints
 
 # Consume / Invoke API endpoints
 
 After setting up the application, you can access the all the endpoints using Swagger UI OR any API client. Below is the API response for the Offers endpoint which supports the filters and pagination options:
 
 API Target: `http://localhost:8060/offers/?expand=broker,parcels`
+
 ![image](https://github.com/asifpy/ParcelGate/assets/6741984/d384edeb-d5b2-428e-9f4d-74dd8a51e4b9)
 
 
