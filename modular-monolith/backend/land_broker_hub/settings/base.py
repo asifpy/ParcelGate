@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'drf_spectacular',
     'django_celery_results',
+    'corsheaders',
 
     # project specific packages
     f'{PROJECT}.broker',
@@ -36,6 +37,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
